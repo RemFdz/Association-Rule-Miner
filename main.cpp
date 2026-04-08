@@ -1,5 +1,5 @@
 #include <iostream>
-#include "read_file.hpp"
+#include "io.hpp"
 
 int main(int argc, char **argv)
 {
@@ -10,8 +10,14 @@ int main(int argc, char **argv)
 
     try {
         std::string file_path = argv[1];
-        std::string file_content = read_file(file_path);
-        std::cout << "File content:\n" << file_content << std::endl;
+        std::vector<std::vector<int>> file_content = parse_transactions(file_path);
+
+        for (auto line : file_content) {
+            for (auto item : line) {
+                std::cout << item << " ";
+            }
+            std::cout << std::endl;
+        }
     }
     catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;

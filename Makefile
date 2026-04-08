@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -O2 -Iinclude
 
 TARGET = assignment1
 
-SRC = main.cpp src/read_file.cpp
+SRC = main.cpp src/parse_transactions.cpp
 
 all: $(TARGET)
 
